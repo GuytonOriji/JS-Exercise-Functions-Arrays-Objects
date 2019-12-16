@@ -39,8 +39,12 @@ function addNumbers(num1, num2) {
  *   email: "leia@leia.com",
  * }
 */
-function makePersonObject(/* code here */) {
-  /* code here */
+function makePersonObject(id,name,email) {
+ return {
+   id,
+   name,
+   email,
+ }
 }
 
 /**
@@ -56,8 +60,8 @@ function makePersonObject(/* code here */) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
-  /* code here */
+function getName(obj) {
+  return `Hello, my name is ${obj.name}`
 }
 
 /**
@@ -73,8 +77,16 @@ function getName(/* code here */) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson(/* code here */) {
-  /* code here */
+function makeSmartPerson(name) {
+  return {
+    name,
+    sum:(num1,num2)=>{
+      return num1 + num2
+    },
+    speak:()=>{
+      return `Hello, my name is ${name}`
+    },
+  }
 }
 
 
@@ -136,7 +148,7 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoByIndex(inventory, index) {
-  /* code here */
+  return `This is a ${inventory[index].car_make} ${inventory[index].car_model}`
 }
 
 /**
@@ -150,8 +162,8 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+function getLastCarInfo(data) {
+  return `This is a ${data.slice(-1)[0].car_make} ${data.slice(-1)[0].car_model}`
 }
 
 /**
@@ -166,8 +178,12 @@ function getLastCarInfo(/* code here */) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
-  /* code here */
+function getCarInfoById(inventory,id) {
+  for(let i = 0;i<inventory.length;i++){
+    if(id===1){
+      return `This is a ${inventory.car_make} ${inventory.car_model}`
+    }
+  }
 }
 
 /**
