@@ -231,21 +231,15 @@ function getModelYears(inventory) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-let e = []
-function getOlderCars(inventory,maxYear) {
-      for(let i=0;i<inventory.length;i++){
-          if(inventory[i].car_year<=maxYear){
-            e.push(inventory[i])
-          }else if(inventory[i].car_year===maxYear){
-            return inventory[i]
-          }
-      else if(inventory.length===50){
-        return e
-      }
-    }
-      
+function getOlderCars(inventory, maxYear/* code here */) {
+  let cars= [];
+  for  (let i=0; i<inventory.length; i++){
+    if(inventory[i].car_year <= maxYear){
+      cars.push(inventory[i]);
   }
-
+}
+  return cars;
+}
 
 /**
  * ### Challenge `getGermanCars`
@@ -314,9 +308,9 @@ const argTimesTwo =  (num) =>{
 function carMaker(odometer) {
   return {
     odometer,
-    drive:(distance)=>{
-        odometer+=distance;
-        return odometer;
+    drive:function(distance){
+        this.odometer+=distance
+        return this.odometer
     }
   }
 }
